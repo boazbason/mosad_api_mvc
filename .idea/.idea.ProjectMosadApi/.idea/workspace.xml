@@ -8,35 +8,41 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d5b3319-8249-40bc-8769-09566e424f53" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectMosadApi.csproj" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectMosadApi.http" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/ProjectMosadApi.sln" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Properties/launchSettings.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appsettings.Development.json" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/appsettings.json" afterDir="false" />
+    <list default="true" id="9d5b3319-8249-40bc-8769-09566e424f53" name="Changes" comment="commit github">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectMosadApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectMosadApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DpaMonitoringSettings">
+    <option name="autoShow" value="false" />
+  </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="boazbasson &lt;basonboaz@gmail.com&gt;" />
+      </list>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo"><![CDATA[{
   "associatedIndex": 8
 }]]></component>
   <component name="ProjectId" id="2kxZNoUbcHwqL6T0XnFY88C38cX" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="1" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    ".NET Launch Settings Profile.ProjectMosadApi: http.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
     "node.js.detected.package.eslint": "true",
@@ -87,13 +93,39 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1724227150221</updated>
-      <workItem from="1724227151253" duration="947000" />
+      <workItem from="1724227151253" duration="15436000" />
     </task>
+    <task id="LOCAL‎-00001" summary="first commit">
+      <option name="closed" value="true" />
+      <created>1724228742922</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL‎-00001" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724228742922</updated>
+    </task>
+    <task id="LOCAL‎-00002" summary="commit github">
+      <option name="closed" value="true" />
+      <created>1724228919331</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL‎-00002" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724228919331</updated>
+    </task>
+    <task id="LOCAL‎-00003" summary="commit github">
+      <option name="closed" value="true" />
+      <created>1724228937388</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL‎-00003" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724228937388</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
   </component>
+  <component name="UnityCheckinConfiguration" checkUnsavedScenes="true" />
   <component name="UnityProjectConfiguration" hasMinimizedUI="false" />
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
@@ -109,5 +141,8 @@
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="false" />
     <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="true" />
+    <MESSAGE value="first commit" />
+    <MESSAGE value="commit github" />
+    <option name="LAST_COMMIT_MESSAGE" value="commit github" />
   </component>
 </project>
