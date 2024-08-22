@@ -8,6 +8,7 @@ public class M_Target
     public int Id { get; set; }
     public string Name { get; set; }
     public string Job { get; set; }
-    public int[] Location = { 0, 0 };
-    public string Status { get; set; }
+    public int? Loc_X { get; set; }
+    public int? Loc_Y { get; set; }
+    public string? Status { get; set; }
 }
