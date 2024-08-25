@@ -8,14 +8,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d5b3319-8249-40bc-8769-09566e424f53" name="Changes" comment="models">
+    <list default="true" id="9d5b3319-8249-40bc-8769-09566e424f53" name="Changes" comment="api perfect">
+      <changelist_data name="https://github.com/boazbason/MosadAPI" email="" />
+      <change afterPath="$PROJECT_DIR$/Controllers/missionsController.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Servicees/TestesSpaces.cs" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Servicees/chase/Chases.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectMosadApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectMosadApi/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Controllers/C_AgentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/C_AgentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/C_TargetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/C_TargetController.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/M_Agent.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/M_Agent.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/M_Mission.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/M_Mission.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Models/M_Target.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Models/M_Target.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/ProjectMosadApi.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectMosadApi.csproj" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +31,7 @@
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
       <list>
+        <option value="https://github.com/boazbason/MosadAPI" />
         <option value="boazbasson &lt;basonboaz@gmail.com&gt;" />
       </list>
     </option>
@@ -101,7 +105,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1724227150221</updated>
-      <workItem from="1724227151253" duration="37716000" />
+      <workItem from="1724227151253" duration="65475000" />
     </task>
     <task id="LOCAL‎-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -143,7 +147,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1724249043814</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL‎-00006" summary="Apis requwest">
+      <option name="closed" value="true" />
+      <created>1724330883295</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL‎-00006" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724330883295</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -169,6 +181,8 @@
     <MESSAGE value="commit github" />
     <MESSAGE value="models,&#10;controller," />
     <MESSAGE value="models" />
-    <option name="LAST_COMMIT_MESSAGE" value="models" />
+    <MESSAGE value="Apis requwest" />
+    <MESSAGE value="api perfect" />
+    <option name="LAST_COMMIT_MESSAGE" value="api perfect" />
   </component>
 </project>
