@@ -28,12 +28,9 @@ public class missionsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllMissions()
     {
-        int status = StatusCodes.Status200OK;
+
         var missions = await this._context.Missions.ToListAsync();
-        return StatusCode(
-            status,
-            HttpUtils.Response(status, new { missions = missions })
-        );
+        return StatusCode(200, missions);
     }
 
     [HttpPut("{id}")]

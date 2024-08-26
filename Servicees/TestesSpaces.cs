@@ -66,4 +66,16 @@ public class TestesSpaces
         }
         return missions;
     }
+    //פונקציה שבודקת האם משימה כבר קיימת עם סוכן וסטטוס מסויימים
+    public static bool AlreadyFound(M_Mission mission, DbSet<M_Mission> missions)
+    {
+        foreach (M_Mission i in missions)
+        {
+            if (i.Agent == mission.Agent && i.Target == mission.Target)
+            {
+                return true;
+            }
+        }
+        return false;
+    }
 }

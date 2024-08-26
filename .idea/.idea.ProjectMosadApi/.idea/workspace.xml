@@ -8,7 +8,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9d5b3319-8249-40bc-8769-09566e424f53" name="Changes" comment="test" />
+    <list default="true" id="9d5b3319-8249-40bc-8769-09566e424f53" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/.idea.ProjectMosadApi/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.ProjectMosadApi/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/C_AgentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/C_AgentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/C_TargetController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/C_TargetController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Controllers/missionsController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Controllers/missionsController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DAL/D_DbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/DAL/D_DbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/DBTemporary_list.cs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/ProjectMosadApi.sln.DotSettings.user" beforeDir="false" afterPath="$PROJECT_DIR$/ProjectMosadApi.sln.DotSettings.user" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Servicees/TestesSpaces.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Servicees/TestesSpaces.cs" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -28,6 +37,12 @@
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "boazbason"
+  }
+}]]></component>
   <component name="GithubPullRequestsUISettings"><![CDATA[{
   "selectedUrlAndAccountId": {
     "url": "https://github.com/boazbason/MosadAPI",
@@ -36,6 +51,7 @@
 }]]></component>
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/8dcaa86d244383f19a7e7f37d5bc85cb76ffbd2182af5920de25259e432a/NpgsqlBigIntegerTypeMapping.cs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$APPLICATION_CONFIG_DIR$/resharper-host/SourcesCache/db7395f4add94e6d10e515b3e55373f2821f8323de7dc8e314d78feefacf5584/ActionMethodExecutor.cs" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo"><![CDATA[{
@@ -102,7 +118,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1724227150221</updated>
-      <workItem from="1724227151253" duration="65816000" />
+      <workItem from="1724227151253" duration="82702000" />
     </task>
     <task id="LOCAL‎-00001" summary="first commit">
       <option name="closed" value="true" />
@@ -168,7 +184,15 @@
       <option name="project" value="LOCAL‎" />
       <updated>1724591620423</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL‎-00009" summary="test2">
+      <option name="closed" value="true" />
+      <created>1724591746260</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL‎-00009" />
+      <option name="project" value="LOCAL‎" />
+      <updated>1724591746260</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,6 +221,7 @@
     <MESSAGE value="Apis requwest" />
     <MESSAGE value="api perfect" />
     <MESSAGE value="test" />
-    <option name="LAST_COMMIT_MESSAGE" value="test" />
+    <MESSAGE value="test2" />
+    <option name="LAST_COMMIT_MESSAGE" value="test2" />
   </component>
 </project>

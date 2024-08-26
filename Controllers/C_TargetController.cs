@@ -21,7 +21,6 @@ public class targetsController : ControllerBase
     {
         this._context = context;
         this._logger = logger;
-        TestesSpaces _tesSpaces;
 
     }
     
@@ -58,8 +57,20 @@ public class targetsController : ControllerBase
             status = StatusCodes.Status404NotFound;
             return StatusCode(status, HttpUtils.Response(status, "Target not found"));
         }
-        Target.Loc_X = Convert.ToInt32(directionDict["x"]) ;
-        Target.Loc_Y = Convert.ToInt32(directionDict["y"]) ;
+
+        int x = Convert.ToInt32(directionDict["x"]);
+        int y = Convert.ToInt32(directionDict["y"]);
+
+        if (x > 1000 || x < 0 || y > 1000 || y < 0)
+        {
+            return StatusCode(
+                StatusCodes.Status400BadRequest,
+                new { message = "X and Y should be in the range [1,1000]." });
+        }
+        
+        Target.Loc_X = x ;
+        Target.Loc_Y = y;
+        Target.Status = "Free";
         _context.Targets.Update(Target);
 
         //בדיקה האם יש סוכנים באזור ואם כן אז ליצור משימה חדשה
@@ -67,7 +78,7 @@ public class targetsController : ControllerBase
         foreach (M_Mission mission in agentsOptional)
         {
             if (mission.Agent.Status == "Free" && mission.Target.Status == "Free" &&
-                !_context.Missions.Contains(mission))
+                !TestesSpaces.AlreadyFound(mission, _context.Missions))
             {
                 _context.Missions.Add(mission);
                 mission.Status = "Optional";
@@ -118,7 +129,7 @@ public class targetsController : ControllerBase
         foreach (M_Mission mission in agentsOptional)
         {
             if (mission.Agent.Status == "Free" && mission.Target.Status == "Free" &&
-                !_context.Missions.Contains(mission))
+                !TestesSpaces.AlreadyFound(mission, _context.Missions))
             {
                 _context.Missions.Add(mission);
                 mission.Status = "Optional";

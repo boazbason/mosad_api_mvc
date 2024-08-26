@@ -10,7 +10,7 @@ namespace ProjectMosadApi.Controllers;
 
 
 [ApiController]
-[Route("api/[controller]")]
+[Route("[controller]")]
 public class agentsController : ControllerBase
 {
     private readonly D_DbContext _context;
@@ -19,7 +19,6 @@ public class agentsController : ControllerBase
     {
         this._context = context;
         this._logger = logger;
-        TestesSpaces _tesSpaces;
 
     }
     
@@ -78,34 +77,59 @@ public class agentsController : ControllerBase
         string move  = directionDict["direction"];
         if (move.Contains("n"))
         {
+            if (agent.Loc_Y < 1)
+            {
+                return StatusCode(
+                    StatusCodes.Status400BadRequest,
+                    new { message = "X and Y should be in the range [1,1000]." });
+            }
             agent.Loc_Y++;
             _context.Agents.Update(agent);
         }
         if (move.Contains("e"))
         {
+            if (agent.Loc_X > 999)
+            {
+                return StatusCode(
+                    StatusCodes.Status400BadRequest,
+                    new { message = "X and Y should be in the range [1,1000]." });
+            }
             agent.Loc_X++;
             _context.Agents.Update(agent);
         }
         if (move.Contains("s"))
         {
+            if (agent.Loc_Y > 999)
+            {
+                return StatusCode(
+                    StatusCodes.Status400BadRequest,
+                    new { message = "X and Y should be in the range [1,1000]." });
+            }
             agent.Loc_Y--;
             _context.Agents.Update(agent);
         }
         if (move.Contains("w"))
         {
+            if (agent.Loc_X < 1)
+            {
+                return StatusCode(
+                    StatusCodes.Status400BadRequest,
+                    new { message = "X and Y should be in the range [1,1000]." });
+            }
             agent.Loc_X--;
             _context.Agents.Update(agent);
         }
         
         //בדיקה האם יש מטרות באזור ואם כן אז ליצור משימה חדשה
+        //פונקציית החזרת מערך של כל המשימות הרלוונטיות בסביבה
         List<M_Mission> missionsOptional = TestesSpaces.Test_Targets_Around(agent, _context.Targets);
         foreach (M_Mission mission in missionsOptional)
         {
-            if (mission.Agent.Status == "Free" && mission.Target.Status == "Free" &&
-                !_context.Missions.Contains(mission))
+            if (mission.Agent.Status == "Free" && mission.Target.Status == "Free" && !TestesSpaces.AlreadyFound(mission, _context.Missions))
             {
                 _context.Missions.Add(mission);
                 mission.Status = "Optional";
+                _context.SaveChanges();
 
             }
         }
@@ -127,19 +151,28 @@ public class agentsController : ControllerBase
             status = StatusCodes.Status404NotFound;
             return StatusCode(status, HttpUtils.Response(status, "agent not found"));
         }
-        agent.Loc_X = Convert.ToInt32(directionDict["x"]) ;
-        agent.Loc_Y = Convert.ToInt32(directionDict["y"]) ;
+        int x = Convert.ToInt32(directionDict["x"]);
+        int y = Convert.ToInt32(directionDict["y"]);
+
+        if (x > 1000 || x < 0 || y > 1000 || y < 0)
+        {
+            return StatusCode(
+                StatusCodes.Status400BadRequest,
+                new { message = "X and Y should be in the range [1,1000]." });
+        }
+        agent.Status = "Free";
         _context.Agents.Update(agent);
         
         //בדיקה האם יש מטרות באזור ואם כן אז ליצור משימה חדשה
         List<M_Mission> missionsOptional = TestesSpaces.Test_Targets_Around(agent, _context.Targets);
         foreach (M_Mission mission in missionsOptional)
         {
-            if (mission.Agent.Status == "Free" && mission.Target.Status == "Free" &&
-                !_context.Missions.Contains(mission))
+            if (mission.Agent.Status == "Free" && mission.Target.Status == "Free" && !TestesSpaces.AlreadyFound(mission, _context.Missions))
             {
                 _context.Missions.Add(mission);
                 mission.Status = "Optional";
+                _context.SaveChanges();
+
             }
         }
         _context.SaveChanges();
