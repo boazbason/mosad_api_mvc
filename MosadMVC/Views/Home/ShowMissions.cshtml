@@ -1,0 +1,50 @@
+@model IEnumerable<ProjectMosadApi.Models.M_Mission>
+
+@{
+    ViewData["Title"] = "jjjjj";
+}
+
+<h1>חיבור סוכנים למטרות</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                כינוי הסוכן
+            </th>
+            <th>
+                שם המבוקש
+            </th>
+            <th>
+                זמן לחיסול
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    //if (item.Status != "Option")
+    //{
+    //     continue;
+    // }
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Status)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Target.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TimeMission)
+            </td>
+            <td>
+                <a asp-action="StartMission" asp-route-id="@item.Id">חיבור סוכן למשימה</a> |
+                <a asp-controller="Agents" asp-action="AgentView" >Details</a> |
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
