@@ -59,6 +59,10 @@ public class HomeController : Controller
                 Data["FinishedMission"]++;
             }
         }
+        
+        
+        
+        
 
         Data["AgentToTarget"] = Data["AgentsCount"] / Data["TargetsCount"];
         Data["ActiveagentToTarget"] = (Data["AgentsCount"] - Data["ActiveAgents"]) /
