@@ -34,7 +34,9 @@ public class TestesSpaces
                 //אם המרחק קטן מ 200 יצירת משימה חדשה עם סטטוס אופציונלי
                 M_Mission mission = new M_Mission();
                 mission.Agent = agent;
+                mission.AgentId = agent.Id;
                 mission.Target = target;
+                mission.TargetId = target.Id;
                 mission.Status = "Optional";
                 mission.TimeMission = distance(agent, target) / 5.0;
                 missions.Add(mission);

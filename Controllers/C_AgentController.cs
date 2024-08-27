@@ -27,7 +27,6 @@ public class agentsController : ControllerBase
     [ProducesResponseType(StatusCodes.Status201Created)]
     public  IActionResult CreateAgent(M_Agent agent)
     {
-        //Console.WriteLine("Agent Creating");
         _context.Agents.Add(agent);
         _context.SaveChanges();
         
@@ -40,33 +39,30 @@ public class agentsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllAgent()
     {
-        int status = StatusCodes.Status200OK;
-        var attacks = await this._context.Agents.ToListAsync();
-        return StatusCode(
-            status,
-            HttpUtils.Response(status, new {attacks = attacks})
-        );
+        var agents = await this._context.Agents.ToListAsync();
+        return Ok(agents);
     }
 
     [HttpGet("GetAgent/{id}")]
     public async Task<IActionResult> GetAgent(int id)
     {
-        int status;
         var agent = await this._context.Agents.FindAsync(id);
         if (agent == null)
         {
-            status = StatusCodes.Status404NotFound;
-            return StatusCode(status, HttpUtils.Response(status, "agent not found"));
+            return NotFound();
         }
 
-        status = StatusCodes.Status200OK;
-        return StatusCode(status, HttpUtils.Response(status, new { agent = agent }));
-        
+        return Ok(agent);
     }
 
     [HttpPut ("{id}/move")]
     public async Task<IActionResult> MoveAgent(int id, [FromBody] Dictionary<string, string> directionDict)
     {
+        //בדיקת הטוקן
+        if (!ManagerTokens.tokensSimulation.Contains(directionDict["token"]))
+        {
+            return StatusCode(StatusCodes.Status401Unauthorized);
+        }
         int status;
         var agent = await this._context.Agents.FindAsync(id);
         if (agent == null)
@@ -144,6 +140,11 @@ public class agentsController : ControllerBase
     [HttpPut("{id}/pin")]
     public async Task<IActionResult> SeetAgent(int id, [FromBody] Dictionary<string, string> directionDict)
     {
+        //בדיקת הטוקן
+        if (!ManagerTokens.tokensSimulation.Contains(directionDict["token"]))
+        {
+            return StatusCode(StatusCodes.Status401Unauthorized);
+        }
         int status;
         var agent = await this._context.Agents.FindAsync(id);
         if (agent == null)

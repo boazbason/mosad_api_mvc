@@ -40,16 +40,17 @@ public class targetsController : ControllerBase
     [HttpGet]
     public async Task<IActionResult> GetAllTarget()
     {
-        int status = StatusCodes.Status200OK;
         var Targets = await this._context.Targets.ToListAsync();
-        return StatusCode(
-            status,
-            HttpUtils.Response(status, new {Targets = Targets})
-        );
+        return Ok(Targets);
     }
     [HttpPut("{id}/pin")]
     public async Task<IActionResult> SeetTarget(int id, [FromBody] Dictionary<string, string> directionDict)
     {
+        //בדיקת הטוקן
+        if (!ManagerTokens.tokensSimulation.Contains(directionDict["token"]))
+        {
+            return StatusCode(StatusCodes.Status401Unauthorized);
+        }
         int status;
         var Target = await this._context.Targets.FindAsync(id);
         if (Target == null)
@@ -95,6 +96,11 @@ public class targetsController : ControllerBase
     [HttpPut ("{id}/move")]
     public async Task<IActionResult> MoveTarget(int id, [FromBody] Dictionary<string, string> directionDict)
     {
+        //בדיקת הטוקן
+        if (!ManagerTokens.tokensSimulation.Contains(directionDict["token"]))
+        {
+            return StatusCode(StatusCodes.Status401Unauthorized);
+        }
         int status;
         var target = await this._context.Targets.FindAsync(id);
         if (target == null)
@@ -142,6 +148,17 @@ public class targetsController : ControllerBase
             StatusCodes.Status200OK,
             new { message = "Target Moved" });
 
+    }
+    [HttpGet("GetTarget/{id}")]
+    public async Task<IActionResult> GetTarget(int id)
+    {
+        var target = await this._context.Targets.FindAsync(id);
+        if (target == null)
+        {
+            return NotFound();
+        }
+
+        return Ok(target);
     }
 
 }

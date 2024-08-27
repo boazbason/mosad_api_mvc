@@ -32,6 +32,23 @@ public class missionsController : ControllerBase
         var missions = await this._context.Missions.ToListAsync();
         return StatusCode(200, missions);
     }
+    
+    
+    [HttpGet("GetMission/{id}")]
+    public async Task<IActionResult> GetMission(int id)
+    {
+        var mission = await this._context.Missions.FindAsync(id);
+
+        if (mission == null)
+        {
+            return NotFound();
+        }
+        mission.TimeMission = TestesSpaces.distance(_context.Agents.Find(mission.AgentId), _context.Targets.Find(mission.TargetId)) / 5;
+        _context.Missions.Update(mission);
+        _context.SaveChanges();
+
+        return Ok(mission);
+    }
 
     [HttpPut("{id}")]
     public IActionResult StartMission(int id)
@@ -41,7 +58,14 @@ public class missionsController : ControllerBase
         {
             return NotFound();
         }
-        mission.StartTime = DateTime.Now;
+        //בדיקה שהמטרה והסוכן עדיין בטווח
+        if (TestesSpaces.distance(_context.Agents.Find(mission.AgentId), _context.Targets.Find(mission.TargetId)) > 200 )
+        {
+            return StatusCode(
+                StatusCodes.Status200OK,
+                new { message = "Agent ant Target not in range" });
+        }
+        //mission.StartTime = DateTime.Now;
         mission.Status = "Active";
         _context.Missions.Update(mission);
         _context.SaveChanges();
@@ -52,7 +76,7 @@ public class missionsController : ControllerBase
     }
 
     [HttpPut("update")]
-    public void UpdateMissions()
+    public IActionResult UpdateMissions()
     {
         foreach (M_Mission mission in _context.Missions)
         {
@@ -79,6 +103,7 @@ public class missionsController : ControllerBase
             }
         }
         _context.SaveChanges();
+        return StatusCode(StatusCodes.Status200OK, new { message = "Mission finished." });
     }
 
 }
