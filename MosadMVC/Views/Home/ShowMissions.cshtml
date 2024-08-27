@@ -1,0 +1,77 @@
+@model IEnumerable<ProjectMosadApi.Models.M_Mission>
+
+@{
+    ViewData["Title"] = "jjjjj";
+}
+
+<h1>חיבור סוכנים למטרות</h1>
+
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                שם סוכן
+            </th>
+            <th>
+                מיקום הסוכן
+            </th>
+            <th>
+                שם המבוקש
+            </th>
+            <th>
+                הערות 
+            </th>
+            <th>
+                מיקום המטרה
+            </th>
+            <th>
+                מרחק
+            </th>
+            <th>
+                זמן לחיסול
+            </th>
+            <th>
+                כפתור החיבור
+            </th>
+
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+    // if (item.Status != "Option")
+    // {
+    //      continue;
+    //  }
+        <tr>
+            <td>
+                @item.Agent.nickname
+            </td>
+            <td>
+                X - @item.Agent.Loc_X, Y - @item.Agent.Loc_Y  
+            </td>
+            <td>
+                @item.Target.Name
+            </td>
+            <td>
+                @item.Target.Job
+            </td>
+            <td>
+                x: @item.Target.Loc_X, Y: @item.Target.Loc_Y
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Target.Name)
+            </td>
+            <td>
+                @item.TimeMission
+            </td>
+            <td>
+                <a asp-action="StartMission" asp-route-id="@item.Id">חיבור סוכן למשימה</a> |
+            </td>
+        </tr>
+}
+<a asp-controller="Agents" asp-action="AgentView">צפייה בסוכנים</a> |
+<a asp-controller="Targets" asp-action="TaretsView">צפייה במטרות</a>
+
+    </tbody>
+</table>

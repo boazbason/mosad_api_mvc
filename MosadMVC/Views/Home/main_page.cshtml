@@ -1,0 +1,62 @@
+@model Dictionary<string, int>
+
+@{
+ViewData["Title"] = "סטטיסטיקות משימה";
+}
+
+<h1>סטטיסטיקות משימה</h1>
+
+
+
+<table class="table">
+    <thead>
+    <tr>
+        <th>
+            
+        </th>
+        <th>
+            ערך
+        </th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>מספר הסוכנים הכללי</td>
+        <td>@Model["AgentsCount"]</td>
+    </tr>
+    <tr>
+        <td>מספר הסוכנים בפעולה</td>
+        <td>@Model["ActiveAgents"]</td>
+    </tr>
+    <tr>
+        <td>מספר המטרות הכללי</td>
+        <td>@Model["TargetsCount"]</td>
+    </tr>
+    <tr>
+        <td>מספר המטרות שחוסלו</td>
+        <td>@Model["TargetsDeadcount"]</td>
+    </tr>
+    <tr>
+        <td>מספר המשימות הכללי</td>
+        <td>@Model["MissionCount"]</td>
+    </tr>
+    <tr>
+        <td>מספר המשימות שהסתיימו</td>
+        <td>@Model["FinishedMission"]</td>
+    </tr>
+    <tr>
+        <td>יחס הסוכנים למטרות</td>
+        <td>@Model["AgentToTarget"]</td>
+    </tr>
+    <tr>
+        <td>יחס הסוכנים הזמינים למטרות</td>
+        <td>@Model["ActiveagentToTarget"]</td>
+    </tr>
+    </tbody>
+</table>
+
+<p>
+    <a asp-controller="Agents" asp-action="AgentView">צפייה בסוכנים</a> |
+    <a asp-controller="Home" asp-action="ShowMissions">צפייה במשימות</a> |
+    <a asp-controller="Targets" asp-action="TaretsView">צפייה במטרות</a>
+</p>
